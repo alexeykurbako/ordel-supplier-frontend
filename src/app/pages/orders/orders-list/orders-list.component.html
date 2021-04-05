@@ -1,0 +1,31 @@
+<div class="slot">
+  <div class="space orders-container background-transparent">
+    <ng-container *ngIf="orderStore.orders$ | async as orders">
+      <div class="header">
+        <nb-card class="header-card card">
+          <nb-card-body class="slot">
+            <div class="space header-data header-background">
+              <div class="space space-component1 background-transparent">
+                <div class="space space-component background-transparent">
+                  <h6 class="heading text-basic">Restaurant name</h6>
+                </div>
+              </div>
+              <div class="space space-component2 background-transparent">
+                <h6 class="heading right text-basic">Date </h6>
+              </div>
+              <div class="space space-component3 background-transparent">
+                <h6 class="heading text-basic">Status</h6>
+              </div>
+              <div class="space space-component4 background-transparent">
+                <h6 class="heading text-basic">Total price</h6>
+              </div>
+            </div>
+          </nb-card-body>
+        </nb-card>
+      </div>
+
+      <ngx-order-item *ngFor="let order of orders" [order]="order"
+                      [routerLink]="['/orders', order.id]"></ngx-order-item>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<nb-card class="card">
+  <nb-card-body class="slot">
+    <div class="space space-component5 background-transparent">
+      <div class="space space-component1 background-transparent">
+        <div class="space space-component background-transparent">
+          <p class="text bold text-basic paragraph">{{order.customer.name}}</p>
+        </div>
+      </div>
+      <div class="space space-component2 background-transparent">
+        <span class="text1 right text-basic subtitle">{{order.date | date: 'short'}}</span>
+      </div>
+      <div class="space space-component3 background-transparent">
+        <span class="text2 text-basic subtitle">{{order.status}}</span>
+      </div>
+      <div class="space space-component4 background-transparent">
+        <h6 class="heading text-basic">{{transformNumber(order.totalPrice)}}$</h6>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

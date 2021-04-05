@@ -1,0 +1,29 @@
+<nb-card class="card" accent="primary" *ngIf="order">
+  <nb-card-header class="slot">
+    <div class="space space-component background-transparent">
+      <span class="text text-basic subtitle">{{order.customer.name}}</span>
+    </div>
+  </nb-card-header>
+
+  <nb-card-body class="slot">
+    <div class="space space-component10 background-transparent">
+      <ngx-order-product *ngFor="let orderItem of order.orderItems"
+                         [orderItem]="orderItem">
+      </ngx-order-product>
+    </div>
+  </nb-card-body>
+
+  <nb-card-footer class="slot order-footer">
+    <div class="space space-component12 background-transparent">
+      <nb-select [selected]="order.status" (selectedChange)="orderStatusChanged.emit($event)">
+        <nb-option [value]="statusEnum.new">{{statusEnum.new}}</nb-option>
+        <nb-option [value]="statusEnum.inProgress">{{statusEnum.inProgress}}</nb-option>
+        <nb-option [value]="statusEnum.done">{{statusEnum.done}}</nb-option>
+      </nb-select>
+    </div>
+    <div class="space space-component11 background-transparent">
+      <span class="text7 text-basic subtitle">Total:</span>
+      <span class="text8 text-basic subtitle">{{order.totalPrice.toFixed(2)}}$</span>
+    </div>
+  </nb-card-footer>
+</nb-card>

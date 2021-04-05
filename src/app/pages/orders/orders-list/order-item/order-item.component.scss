@@ -1,0 +1,310 @@
+@import '../../../../@theme/styles/themes';
+
+:host {
+  width: calc(100% - 16px);
+  margin: 8px 8px 0;
+  display: block;
+}
+
+@include nb-install-component() {
+
+  .text {
+    margin: 0 0 4px;
+  }
+
+  .space-component {
+    height: auto;
+    min-height: 2rem;
+    flex-grow: 1;
+    flex-basis: 0;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .space-component1 {
+    height: 100%;
+    width: 55%;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .text1 {
+    margin: 0;
+  }
+
+  .space-component2 {
+    height: auto;
+    min-height: 2rem;
+    width: 10%;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: visible;
+  }
+
+  .text2 {
+    margin: 0;
+  }
+
+  .space-component3 {
+    height: auto;
+    min-height: 2rem;
+    width: 20%;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    overflow: visible;
+  }
+
+  .heading {
+    margin: 0;
+  }
+
+  .space-component4 {
+    height: auto;
+    min-height: 2rem;
+    width: 15%;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-end;
+    overflow: visible;
+  }
+
+  .space-component5 {
+    height: auto;
+    min-height: 2rem;
+    flex-grow: 1;
+    flex-basis: 0;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+    padding: 24px 32px;
+    overflow: visible;
+    cursor: pointer;
+  }
+
+  .card {
+    width: 100%;
+    > nb-card-header {
+      padding: 0;
+    }
+    > nb-card-body {
+      padding: 0;
+    }
+    > nb-card-footer {
+      padding: 0;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .text {
+      display: block;
+    }
+
+    .space-component {
+      display: flex;
+    }
+
+    .space-component1 {
+      display: flex;
+    }
+
+    .text1 {
+      display: block;
+    }
+
+    .space-component2 {
+      display: flex;
+    }
+
+    .text2 {
+      display: block;
+    }
+
+    .space-component3 {
+      display: flex;
+    }
+
+    .heading {
+      display: block;
+    }
+
+    .space-component4 {
+      display: flex;
+    }
+
+    .space-component5 {
+      display: flex;
+    }
+
+    display: block;
+
+  }
+
+  @media (max-width: 768px) {
+    .text {
+      display: block;
+    }
+
+    .space-component {
+      padding: 0;
+      display: flex;
+    }
+
+    .space-component1 {
+      display: flex;
+    }
+
+    .text1 {
+      display: block;
+    }
+
+    .space-component2 {
+      display: flex;
+    }
+
+    .text2 {
+      display: block;
+    }
+
+    .space-component3 {
+      display: flex;
+    }
+
+    .heading {
+      display: block;
+    }
+
+    .space-component4 {
+      display: flex;
+    }
+
+    .space-component5 {
+      padding: 8px 12px;
+      display: flex;
+    }
+
+    display: block;
+
+  }
+
+  @media (max-width: 480px) {
+    .text {
+      display: block;
+    }
+
+    .space-component {
+      display: flex;
+    }
+
+    .space-component1 {
+      height: 100%;
+      width: 40%;
+      display: flex;
+    }
+
+    .text1 {
+      display: block;
+    }
+
+    .space-component2 {
+      height: 100%;
+      width: 20%;
+      display: none;
+    }
+
+    .text2 {
+      display: block;
+    }
+
+    .space-component3 {
+      height: auto;
+      min-height: 2rem;
+      width: 30%;
+      display: flex;
+    }
+
+    .heading {
+      display: block;
+    }
+
+    .space-component4 {
+      height: auto;
+      min-height: 2rem;
+      width: 30%;
+      display: flex;
+    }
+
+    .space-component5 {
+      display: flex;
+    }
+
+    display: block;
+
+  }
+
+  @media (max-width: 320px) {
+    .text {
+      display: block;
+    }
+
+    .space-component {
+      display: flex;
+    }
+
+    .space-component1 {
+      height: 100%;
+      width: 40%;
+      display: flex;
+    }
+
+    .text1 {
+      display: block;
+    }
+
+    .space-component2 {
+      height: 100%;
+      width: 20%;
+      display: none;
+    }
+
+    .text2 {
+      display: block;
+    }
+
+    .space-component3 {
+      height: auto;
+      min-height: 2rem;
+      width: 30%;
+      display: flex;
+    }
+
+    .heading {
+      display: block;
+    }
+
+    .space-component4 {
+      height: auto;
+      min-height: 2rem;
+      width: 30%;
+      display: flex;
+    }
+
+    .space-component5 {
+      display: flex;
+    }
+
+    display: block;
+
+  }
+}
+
+
+

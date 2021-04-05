@@ -1,0 +1,22 @@
+<div class="header-container">
+  <div class="logo-container">
+    <a [routerLink]="['/']">
+      <img class="image" src="../../../../assets/images/Ordinga_final.png">
+    </a>
+    <a [routerLink]="['/']">
+      <span class="link-container text2 text-basic subtitle">Orders</span>
+    </a>
+  </div>
+</div>
+
+<div class="header-container">
+  <nb-actions size="small">
+    <nb-action class="control-item" icon="bell-outline"></nb-action>
+    <nb-action class="user-action" *ngIf="(authService.getToken() | async).getPayload() as user">
+      <nb-user [nbContextMenu]="userMenu"
+               [onlyPicture]="userPictureOnly"
+               [name]="user?.name">
+      </nb-user>
+    </nb-action>
+  </nb-actions>
+</div>

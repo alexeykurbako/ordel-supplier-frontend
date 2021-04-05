@@ -1,0 +1,23 @@
+<!--
+  ~ Copyright (c) Akveo 2019. All Rights Reserved.
+  ~ Licensed under the Single Application / Multi Application License.
+  ~ See LICENSE_SINGLE_APP / LICENSE_MULTI_APP in the 'docs' folder for license information on type of purchased license.
+  -->
+
+<nb-card class="current-user-card">
+  <nb-card-header>Current user</nb-card-header>
+  <nb-card-body>
+    <div class="user-data"  *ngIf="currentUser$ | async as user">
+      <span class="text-basic capture">User name: {{user.firstName}} {{user.lastName}}</span>
+      <span class="text-basic capture">Supplier name: {{user.client.name}}</span>
+      <span class="text-basic capture">Email: {{user.client.email}}</span>
+      <span class="text-basic capture">Street: {{user.client.address.street}}</span>
+      <span class="text-basic capture">City: {{user.client.address.city}}</span>
+      <span class="text-basic capture">Postcode: {{user.client.address.zipcode}}</span>
+      <span class="text-basic">
+        If you have any questions, feel free to contact us: <a href = "mailto: support@ordinga.ch">support@ordinga.ch</a>
+      </span>
+    </div>
+  </nb-card-body>
+</nb-card>
+
