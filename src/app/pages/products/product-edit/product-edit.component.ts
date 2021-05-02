@@ -6,9 +6,9 @@ import {Observable, Subject} from 'rxjs';
 import { NbToastrService } from '@nebular/theme';
 import {User, UserData} from '../../../@core/interfaces/common/users';
 import {NbAuthOAuth2JWTToken, NbTokenService} from '@nebular/auth';
-import {Product, ProductData} from "../../../@core/interfaces/products";
-import {takeUntil} from "rxjs/operators";
-import {ImageCroppedEvent} from "ngx-image-cropper";
+import {Product, ProductData} from '../../../@core/interfaces/products';
+import {takeUntil} from 'rxjs/operators';
+import {ImageCroppedEvent} from 'ngx-image-cropper';
 
 
 export enum ProductMode {

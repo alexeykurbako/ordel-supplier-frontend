@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {ProductStore} from '../../../@core/stores/product.store';
 import {NbToastrService} from '@nebular/theme';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'ngx-products',

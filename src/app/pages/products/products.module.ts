@@ -16,7 +16,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     ReactiveFormsModule,
     ProductsRoutingModule,
     SharedModule,
-    ImageCropperModule
+    ImageCropperModule,
   ],
   declarations: [
     ProductsComponent,
