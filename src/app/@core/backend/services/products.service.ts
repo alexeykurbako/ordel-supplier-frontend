@@ -13,4 +13,12 @@ export class ProductsService extends ProductData {
   getProducts(): Observable<Product[]> {
     return this.api.getProducts();
   }
+
+  create(product: any): Observable<Product> {
+    return this.api.add(product);
+  }
+
+  update(product: any): Observable<Product> {
+    return this.api.update(product);
+  }
 }

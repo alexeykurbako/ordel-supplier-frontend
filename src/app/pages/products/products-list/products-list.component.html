@@ -1,0 +1,10 @@
+  <div class="slot">
+    <div class="space space-component background-transparent">
+      <div class="add-button-wrapper">
+        <button class="add-employee-button" (click)="handleAddClick()" nbButton outline status="success">Add product</button>
+      </div>
+      <ng-container *ngIf="productStore.products$ | async as products">
+        <ngx-product-item *ngFor="let product of products" [productItem]="product"></ngx-product-item>
+      </ng-container>
+    </div>
+  </div>

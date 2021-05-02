@@ -1,0 +1,57 @@
+:host > .slot {
+  height: 100%;
+
+  .add-button-wrapper {
+    display: flex;
+    width: 100%;
+  }
+
+  .add-employee-button {
+    margin: 8px 8px 0 auto;
+  }
+
+
+  .space-component {
+    height: 100%;
+    width: 100%;
+    align-items: stretch;
+    align-content: stretch;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 0;
+    overflow: visible;
+  }
+
+  @media (max-width: 1024px) {
+    .space-component {
+      display: flex;
+    }
+
+  }
+
+  @media (max-width: 768px) {
+    .space-component {
+      display: flex;
+    }
+
+  }
+
+  @media (max-width: 480px) {
+    .space-component {
+      display: flex;
+    }
+
+  }
+
+  @media (max-width: 320px) {
+    .space-component {
+      padding: 0;
+      display: flex;
+    }
+
+  }
+}
+
+ion-content ion-toolbar {
+  --background: translucent;
+}

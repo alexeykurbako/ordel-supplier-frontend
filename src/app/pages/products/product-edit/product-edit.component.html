@@ -1,0 +1,96 @@
+<nb-card class="form-card">
+  <nb-card-header>{{mode}} product</nb-card-header>
+  <nb-card-body>
+    <input class="image-input" type="file" (change)="fileChangeEvent($event)" />
+
+    <image-cropper
+      class="cropper"
+      [imageChangedEvent]="imageChangedEvent"
+      [maintainAspectRatio]="true"
+      [aspectRatio]="4 / 3"
+      [style.display]="showCropper ? null : 'none'"
+      format="png"
+      (imageCropped)="imageCropped($event)"
+      (imageLoaded)="imageLoaded()"
+      (loadImageFailed)="loadImageFailed()"
+    ></image-cropper>
+<!--    <img [src]="croppedImage" />-->
+    <div [formGroup]="productForm" class="container">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input nbInput id="name" formControlName="name"
+               [status]="(name?.hasError('minlength') || name?.hasError('maxlength')) ? 'danger' : 'primary'"
+               class="form-control" placeholder="Name">
+        <ngx-validation-message label="Name"
+                                [showMinLength]="name?.hasError('minlength')"
+                                [showMaxLength]="name?.hasError('maxlength')" minLength=3
+                                maxLength=20></ngx-validation-message>
+      </div>
+
+      <div class="form-group">
+        <label for="uom">UOM</label>
+        <input nbInput id="uom" formControlName="uom"
+               [status]="(uom?.hasError('minlength') || uom?.hasError('maxlength')) ? 'danger' : 'primary'"
+               class="form-control" placeholder="UOM">
+        <ngx-validation-message label="UOM"
+                                [showMinLength]="uom?.hasError('minlength')"
+                                [showMaxLength]="uom?.hasError('maxlength')" minLength=3
+                                maxLength=20></ngx-validation-message>
+      </div>
+
+      <div class="form-group">
+        <label for="inputBrand">Brand</label>
+        <input nbInput id="inputBrand" formControlName="brand"
+               [status]="(brand?.hasError('minlength') || brand?.hasError('maxlength')) ? 'danger' : 'primary'"
+               class="form-control" placeholder="Brand">
+        <ngx-validation-message label="Brand"
+                                [showMinLength]="brand?.hasError('minlength')"
+                                [showMaxLength]="brand?.hasError('maxlength')" minLength=3
+                                maxLength=20></ngx-validation-message>
+      </div>
+
+      <div class="form-group">
+        <label for="inputDescription">Description</label>
+        <input nbInput id="inputDescription" formControlName="description"
+               [status]="(description?.hasError('minlength') || description?.hasError('maxlength')) ? 'danger' : 'primary'"
+               class="form-control" placeholder="Description">
+        <ngx-validation-message label="Description"
+                                [showMinLength]="description?.hasError('minlength')"
+                                [showMaxLength]="description?.hasError('maxlength')" minLength=3
+                                maxLength=20></ngx-validation-message>
+      </div>
+
+      <div class="form-group">
+        <label for="inputPrice">Price</label>
+        <input nbInput id="inputPrice" formControlName="price"
+               [status]="(price?.errors?.required || price?.hasError('min') || price?.hasError('max')) && price.touched ? 'danger' : 'primary'"
+               class="form-control" placeholder="Price">
+        <ngx-validation-message label="Price"
+                                [showMin]="price?.hasError('min')"
+                                [showMax]="price?.hasError('max')"
+                                [showRequired]="price?.errors?.required && price.touched"
+                                min=0
+                                max=1000></ngx-validation-message>
+      </div>
+
+      <div class="form-group">
+        <label for="count">Count</label>
+        <input nbInput id="count" formControlName="count"
+               [status]="(count?.errors?.required || count?.hasError('min') || count?.hasError('max')) && count.touched ? 'danger' : 'primary'"
+               class="form-control"
+               placeholder="Count">
+        <ngx-validation-message label="Count"
+                                [showMin]="count?.hasError('min')"
+                                [showMax]="count?.hasError('max')"
+                                [showRequired]="count?.errors?.required && price.touched"
+                                min=0
+                                max=100></ngx-validation-message>
+      </div>
+    </div>
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton status="primary" [disabled]="!productForm.valid" (click)="save()" hero>Submit</button>
+    <button nbButton status="info" (click)="back()" hero>Back</button>
+  </nb-card-footer>
+</nb-card>
+

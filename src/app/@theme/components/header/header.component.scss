@@ -21,6 +21,7 @@
     width: calc(#{nb-theme(sidebar-width)} - #{nb-theme(header-padding)});
 
     .link-container {
+      margin-left: 32px;
       cursor: pointer;
     }
   }

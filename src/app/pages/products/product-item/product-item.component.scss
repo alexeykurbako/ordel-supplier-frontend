@@ -1,0 +1,503 @@
+@import '../../../@theme/styles/themes';
+
+:host {
+  width: calc(100% - 16px);
+  margin: 8px 8px 0;
+  display: block;
+}
+
+@include nb-install-component() {
+
+  .text {
+    margin: 0;
+  }
+
+  .space-component {
+    height: auto;
+    min-height: 2rem;
+    flex-grow: 1;
+    flex-basis: 0;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+    overflow: visible;
+  }
+
+  .text1 {
+    margin: 0 4px 0 0;
+    white-space: nowrap;
+  }
+
+  .space-component1 {
+    height: auto;
+    min-height: 2rem;
+    width: 100px;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-end;
+    overflow: visible;
+  }
+
+  .input {
+    width: 80px;
+  }
+
+  .space-component2 {
+    height: auto;
+    min-height: 2rem;
+    width: 115px;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: space-between;
+    overflow: visible;
+  }
+
+  .space-component3 {
+    height: auto;
+    min-height: 2rem;
+    flex-grow: 1;
+    flex-basis: 0;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    overflow: visible;
+  }
+
+  .image {
+    max-width: 100%;
+    height: auto;
+    max-height: 90px;
+    object-fit: contain;
+  }
+
+  .space-component4 {
+    height: 100px;
+    width: 15%;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: visible;
+  }
+
+  .text2 {
+    margin: 0 8px 0 0;
+  }
+
+  .text3 {
+    margin: 0;
+  }
+
+  .space-component5 {
+    height: auto;
+    min-height: 2rem;
+    width: 100%;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+    overflow: visible;
+  }
+
+  .text4 {
+    margin: 0 8px 0 0;
+  }
+
+  .text5 {
+    margin: 0;
+  }
+
+  .space-component6 {
+    height: auto;
+    min-height: 2rem;
+    width: 100%;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+    padding: 0 0 8px;
+    overflow: visible;
+  }
+
+  .space-component7 {
+    height: 100%;
+    flex-grow: 1;
+    flex-basis: 0;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    overflow: visible;
+  }
+
+  .space-component8 {
+    height: auto;
+    min-height: 2rem;
+    flex-grow: 1;
+    flex-basis: 0;
+    align-items: center;
+    align-content: flex-start;
+    justify-content: flex-start;
+    padding: 0;
+    overflow-x: visible;
+    overflow-y: hidden;
+  }
+
+  .card {
+    width: 100%;
+    > nb-card-header {
+      padding: 0;
+    }
+    > nb-card-body {
+      padding: 0;
+    }
+    > nb-card-footer {
+      padding: 0;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .text {
+      display: block;
+    }
+
+    .space-component {
+      display: flex;
+    }
+
+    .text1 {
+      display: block;
+    }
+
+    .space-component1 {
+      display: flex;
+    }
+
+    .input {
+      display: inline-block;
+    }
+
+    .icon {
+      display: inline-block;
+    }
+
+    .space-component2 {
+      display: flex;
+    }
+
+    .space-component3 {
+      display: flex;
+    }
+
+    .image {
+      display: inline-block;
+    }
+
+    .space-component4 {
+      display: flex;
+    }
+
+    .text2 {
+      display: block;
+    }
+
+    .text3 {
+      display: block;
+    }
+
+    .space-component5 {
+      display: flex;
+    }
+
+    .text4 {
+      display: block;
+    }
+
+    .text5 {
+      display: block;
+    }
+
+    .space-component6 {
+      display: flex;
+    }
+
+    .space-component7 {
+      display: flex;
+    }
+
+    .space-component8 {
+      display: flex;
+    }
+
+    display: block;
+
+  }
+
+  @media (max-width: 768px) {
+    .text {
+      display: block;
+    }
+
+    .space-component {
+      display: flex;
+    }
+
+    .text1 {
+      display: block;
+    }
+
+    .space-component1 {
+      display: flex;
+    }
+
+    .input {
+      display: inline-block;
+    }
+
+    .icon {
+      display: inline-block;
+    }
+
+    .space-component2 {
+      display: flex;
+    }
+
+    .space-component3 {
+      display: flex;
+    }
+
+    .image {
+      display: inline-block;
+    }
+
+    .space-component4 {
+      height: 100px;
+      width: 15%;
+      display: flex;
+    }
+
+    .text2 {
+      display: block;
+    }
+
+    .text3 {
+      display: block;
+    }
+
+    .space-component5 {
+      display: flex;
+    }
+
+    .text4 {
+      display: block;
+    }
+
+    .text5 {
+      display: block;
+    }
+
+    .space-component6 {
+      display: flex;
+    }
+
+    .space-component7 {
+      height: auto;
+      min-height: 2rem;
+      flex-grow: 1;
+      flex-basis: 0;
+      display: flex;
+    }
+
+    .space-component8 {
+      padding: 0;
+      display: flex;
+    }
+
+    margin: 8px 8px 0;
+    width: calc(100% - 16px);
+    display: block;
+
+  }
+
+  @media (max-width: 480px) {
+    .text {
+      display: block;
+    }
+
+    .space-component {
+      display: flex;
+    }
+
+    .text1 {
+      display: block;
+    }
+
+    .space-component1 {
+      display: flex;
+    }
+
+    .input {
+      display: inline-block;
+    }
+
+    .icon {
+      display: inline-block;
+    }
+
+    .space-component2 {
+      display: flex;
+    }
+
+    .space-component3 {
+      display: flex;
+    }
+
+    .image {
+      display: inline-block;
+    }
+
+    .space-component4 {
+      display: flex;
+    }
+
+    .text2 {
+      display: block;
+    }
+
+    .text3 {
+      display: block;
+    }
+
+    .space-component5 {
+      display: flex;
+    }
+
+    .text4 {
+      display: block;
+    }
+
+    .text5 {
+      display: block;
+    }
+
+    .space-component6 {
+      display: flex;
+    }
+
+    .space-component7 {
+      display: flex;
+    }
+
+    .space-component8 {
+      height: auto;
+      min-height: 2rem;
+      flex-grow: 1;
+      flex-basis: 0;
+      padding: 4px 8px 0 0;
+      display: flex;
+    }
+
+    display: block;
+
+  }
+
+  @media (max-width: 320px) {
+    .text {
+      display: block;
+    }
+
+    .space-component {
+      display: flex;
+    }
+
+    .text1 {
+      display: block;
+    }
+
+    .space-component1 {
+      height: auto;
+      min-height: 2rem;
+      width: 85px;
+      display: flex;
+    }
+
+    .input {
+      display: inline-block;
+    }
+
+    .icon {
+      display: inline-block;
+    }
+
+    .space-component2 {
+      display: flex;
+      flex-wrap: unset;
+    }
+
+    .space-component3 {
+      display: flex;
+      flex-wrap: unset;
+    }
+
+    .image {
+      display: inline-block;
+    }
+
+    .space-component4 {
+      height: 100px;
+      width: 25%;
+      display: flex;
+    }
+
+    .text2 {
+      display: block;
+    }
+
+    .text3 {
+      display: block;
+    }
+
+    .space-component5 {
+      display: flex;
+    }
+
+    .text4 {
+      display: block;
+    }
+
+    .text5 {
+      display: block;
+    }
+
+    .space-component6 {
+      display: flex;
+    }
+
+    .space-component7 {
+      display: flex;
+    }
+
+    .space-component8 {
+      display: flex;
+    }
+
+    display: block;
+
+  }
+
+  .add-product {
+    cursor: pointer;
+  }
+
+  .product-action-container {
+    display: flex;
+  }
+
+  .product-name {
+    word-break: break-all;
+  }
+}
+
+
+
+
+

@@ -1,0 +1,31 @@
+<nb-card class="card">
+  <nb-card-header class="slot">
+    <div class="space space-component3 background-transparent">
+      <div class="space space-component background-transparent">
+        <span class="text text-basic subtitle product-name">{{ productItem.name }} ({{ productItem.uom }})</span>
+      </div>
+      <div class="product-action-container">
+        <div class="space space-component1 background-transparent">
+          <span class="text1 text-basic subtitle">{{ productItem.clientProducts[0].price }}$ x</span>
+        </div>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body class="slot">
+    <div class="space space-component8 background-transparent">
+      <div class="space space-component4 background-transparent">
+        <img class="image" [src]="'data:image/png;base64,' + productItem.image" />
+      </div>
+      <div class="space space-component7 background-transparent">
+        <div class="space space-component5 background-transparent">
+          <span class="text2 text-basic subtitle-2">Brand:</span>
+          <p class="text3 text-basic paragraph">{{ productItem.brand }}</p>
+        </div>
+        <div class="space space-component6 background-transparent">
+          <span class="text4 text-basic subtitle-2">Details:</span>
+          <p class="text5 text-basic paragraph">{{ productItem.details }}</p>
+        </div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

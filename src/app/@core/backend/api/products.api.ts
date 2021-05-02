@@ -13,4 +13,12 @@ export class ProductsApi {
   getProducts(): Observable<Product[]> {
     return this.api.get(this.apiController);
   }
+
+  add(item: any): Observable<any> {
+    return this.api.post(this.apiController, item);
+  }
+
+  update(item: any): Observable<any> {
+    return this.api.put(`${this.apiController}/${item.id}`, item);
+  }
 }

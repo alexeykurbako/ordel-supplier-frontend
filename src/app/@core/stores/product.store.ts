@@ -5,11 +5,12 @@ import {shareReplay} from 'rxjs/operators';
 
 @Injectable()
 export class ProductStore {
-  readonly products$: Observable<Product[]> = this.productsData.getProducts()
-    .pipe(
+  readonly products$: Observable<Product[]> =
+    this.productsData.getProducts().pipe(
       shareReplay(1),
     );
 
   constructor(private productsData: ProductData) {
   }
 }
+
