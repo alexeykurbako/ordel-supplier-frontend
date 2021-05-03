@@ -13,7 +13,10 @@
   </nb-card-header>
   <nb-card-body class="slot">
     <div class="space space-component8 background-transparent">
-      <div class="space space-component4 background-transparent">
+      <div *ngIf="isImageUrl()" class="space space-component4 background-transparent">
+        <img class="image" [src]="productItem.image" />
+      </div>
+      <div *ngIf="!isImageUrl()" class="space space-component4 background-transparent">
         <img class="image" [src]="'data:image/png;base64,' + productItem.image" />
       </div>
       <div class="space space-component7 background-transparent">

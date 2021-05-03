@@ -13,9 +13,9 @@ export class ProductItemComponent {
   @Output() addProduct: EventEmitter<OrderProductView> = new EventEmitter();
 
   count: FormControl = new FormControl(1);
-  isImageUrl: boolean = true;
-  constructor() {
-    // this.isImageUrl = /^((http|https|ftp):\/\/)/.test(this.productItem.image)
+
+  isImageUrl() {
+    return /^((http|https|ftp):\/\/)/.test(this.productItem.image);
   }
 
 }
