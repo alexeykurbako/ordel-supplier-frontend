@@ -3,10 +3,16 @@
     <div class="space space-component3 background-transparent">
       <div class="space space-component background-transparent">
         <span class="text text-basic subtitle product-name">{{ productItem.name }} ({{ productItem.uom }})</span>
+        <span class="text1 text-basic subtitle">
+            Price: {{ productItem.clientProducts[0].price }}$
+        </span>
+        <span class="text1 text-basic subtitle">
+            Count: {{ productItem.clientProducts[0].count }}
+        </span>
       </div>
       <div class="product-action-container">
         <div class="space space-component1 background-transparent">
-          <span class="text1 text-basic subtitle">{{ productItem.clientProducts[0].price }}$ x</span>
+          <nb-icon [routerLink]="['/products/edit', productItem.id]"  class="control-item" icon="edit-2-outline"></nb-icon>
         </div>
       </div>
     </div>

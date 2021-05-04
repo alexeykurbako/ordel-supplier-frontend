@@ -19,6 +19,6 @@ export class ProductsApi {
   }
 
   update(item: any): Observable<any> {
-    return this.api.put(`${this.apiController}/${item.id}`, item);
+    return this.api.put(this.apiController, item);
   }
 }

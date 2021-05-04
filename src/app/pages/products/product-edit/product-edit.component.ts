@@ -4,11 +4,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import {Observable, Subject} from 'rxjs';
 import { NbToastrService } from '@nebular/theme';
-import {User, UserData} from '../../../@core/interfaces/common/users';
-import {NbAuthOAuth2JWTToken, NbTokenService} from '@nebular/auth';
+import {NbTokenService} from '@nebular/auth';
 import {Product, ProductData} from '../../../@core/interfaces/products';
 import {takeUntil} from 'rxjs/operators';
 import {ImageCroppedEvent} from 'ngx-image-cropper';
+import {ProductStore} from '../../../@core/stores/product.store';
 
 
 export enum ProductMode {
@@ -46,6 +46,7 @@ export class ProductEditComponent implements OnInit {
   }
 
   constructor(private productsService: ProductData,
+              private productStore: ProductStore,
               private router: Router,
               private route: ActivatedRoute,
               private tokenService: NbTokenService,
@@ -55,6 +56,7 @@ export class ProductEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.initUserForm();
+    this.loadUserData();
   }
 
   imageChangedEvent: any = '';
@@ -73,13 +75,44 @@ export class ProductEditComponent implements OnInit {
     this.toasterService.danger('', `It's impossible to upload this image`);
   }
 
+  loadUserData() {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.setViewMode(ProductMode.EDIT);
+      this.loadProduct(id);
+    } else {
+      this.setViewMode(ProductMode.ADD);
+    }
+  }
+
+  loadProduct(id) {
+    this.productStore.products$
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((products) => {
+        const product = products.find((prod) => prod.id === id);
+        this.productForm.setValue({
+          id: product.id ? product.id : '',
+          productItemId: product.clientProducts[0].id ? product.clientProducts[0].id : '',
+          name: product.name ? product.name : '',
+          image: product.image ? product.image : '',
+          uom: product.uom ? product.uom : '',
+          brand: product.brand ? product.brand : '',
+          description: product.details ? product.details : '',
+          price: product.clientProducts[0].price ? product.clientProducts[0].price : '',
+          count: product.clientProducts[0].count ? product.clientProducts[0].count : '',
+        });
+    });
+  }
+
   initUserForm() {
     this.productForm = this.fb.group({
       id: this.fb.control(''),
-      name: this.fb.control('', [Validators.minLength(3), Validators.maxLength(20)]),
-      uom: this.fb.control('', [Validators.minLength(3), Validators.maxLength(20)]),
-      brand: this.fb.control('', [Validators.minLength(3), Validators.maxLength(20)]),
-      description: this.fb.control('', [Validators.minLength(3), Validators.maxLength(20)]),
+      productItemId: this.fb.control(''),
+      image: this.fb.control(''),
+      name: this.fb.control('', [Validators.minLength(3), Validators.maxLength(220)]),
+      uom: this.fb.control('', [Validators.minLength(3), Validators.maxLength(220)]),
+      brand: this.fb.control('', [Validators.minLength(3), Validators.maxLength(220)]),
+      description: this.fb.control('', [Validators.minLength(3), Validators.maxLength(220)]),
       price: this.fb.control('', [Validators.required, Validators.min(0), Validators.max(1000)]),
       count: this.fb.control('', [Validators.required, Validators.min(0), Validators.max(100)]),
     });
@@ -87,23 +120,19 @@ export class ProductEditComponent implements OnInit {
 
   convertToProduct(value: any): Product {
     const product: Product = value;
-    product.image = this.croppedImage;
+    product.image = product.image ? product.image : this.croppedImage;
     return product;
   }
 
   save() {
     const product: Product = this.convertToProduct(this.productForm.value);
 
-    let observable = new Observable<Product>();
-    observable = this.productsService.create(product);
-    // let observable = new Observable<Product>();
-    // if (this.mode === ProductMode.ADD) {
-    //
-    // } else {
-    //   observable = user.id
-    //     ? this.usersService.update(user)
-    //     : this.productsService.create(user);
-    // }
+    let observable;
+    if (this.mode === ProductMode.ADD) {
+      observable = this.productsService.create(product);
+    } else {
+      observable = this.productsService.update(product);
+    }
 
     observable
       .pipe(takeUntil(this.unsubscribe$))
@@ -125,6 +154,6 @@ export class ProductEditComponent implements OnInit {
   }
 
   handleWrongResponse() {
-    this.toasterService.danger('', `This email has already taken!`);
+    this.toasterService.danger('', `Something went wrong!`);
   }
 }

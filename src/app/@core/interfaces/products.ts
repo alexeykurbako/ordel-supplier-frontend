@@ -7,8 +7,10 @@ export interface OrderProductView {
 }
 
 export interface ClientProduct {
+  id: string;
   clientId: string;
   price: number;
+  count: number;
 }
 
 export interface Product {
