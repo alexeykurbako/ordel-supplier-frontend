@@ -1,8 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import {Observable, Subject} from 'rxjs';
+import {Subject} from 'rxjs';
 import { NbToastrService } from '@nebular/theme';
 import {NbTokenService} from '@nebular/auth';
 import {Product, ProductData} from '../../../@core/interfaces/products';
