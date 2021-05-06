@@ -23,7 +23,7 @@ export enum ProductMode {
 })
 export class ProductEditComponent implements OnInit {
   productForm: FormGroup;
-
+  private oldImage: string;
   showCropper = false;
 
   protected readonly unsubscribe$ = new Subject<void>();
@@ -90,6 +90,7 @@ export class ProductEditComponent implements OnInit {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((products) => {
         const product = products.find((prod) => prod.id === id);
+        this.oldImage = product.image;
         this.productForm.setValue({
           id: product.id ? product.id : '',
           productItemId: product.clientProducts[0].id ? product.clientProducts[0].id : '',
@@ -113,14 +114,21 @@ export class ProductEditComponent implements OnInit {
       uom: this.fb.control('', [Validators.minLength(3), Validators.maxLength(220)]),
       brand: this.fb.control('', [Validators.minLength(3), Validators.maxLength(220)]),
       description: this.fb.control('', [Validators.minLength(3), Validators.maxLength(220)]),
-      price: this.fb.control('', [Validators.required, Validators.min(0), Validators.max(1000)]),
-      count: this.fb.control('', [Validators.required, Validators.min(0), Validators.max(100)]),
+      price: this.fb.control('', [Validators.required,
+        Validators.pattern('^(-?)(0|([1-9][0-9]*))(\\.[0-9]+)?$'), Validators.min(0), Validators.max(1000)]),
+      count: this.fb.control('', [Validators.required,
+        Validators.pattern('[0-9]+'), Validators.min(0), Validators.max(100)]),
     });
   }
 
   convertToProduct(value: any): Product {
     const product: Product = value;
-    product.image = product.image ? product.image : this.croppedImage;
+    // product.image = product.image
+    // && product.image !== 'https://ordel-thumbnails.s3.eu-north-1.amazonaws.com/Missing_Image'
+    //   ? product.image : this.croppedImage;
+    if (this.croppedImage !== this.oldImage && this.croppedImage.length > 0) {
+      product.image = this.croppedImage;
+    }
     return product;
   }
 

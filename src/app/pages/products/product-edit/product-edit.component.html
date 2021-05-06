@@ -14,7 +14,6 @@
       (imageLoaded)="imageLoaded()"
       (loadImageFailed)="loadImageFailed()"
     ></image-cropper>
-<!--    <img [src]="croppedImage" />-->
     <div [formGroup]="productForm" class="container">
       <div class="form-group">
         <label for="name">Name</label>
@@ -63,11 +62,12 @@
       <div class="form-group">
         <label for="inputPrice">Price</label>
         <input nbInput id="inputPrice" formControlName="price"
-               [status]="(price?.errors?.required || price?.hasError('min') || price?.hasError('max')) && price.touched ? 'danger' : 'primary'"
+               [status]="(price?.errors?.required || price?.hasError('min') || price?.hasError('pattern') || price?.hasError('max')) && price.touched ? 'danger' : 'primary'"
                class="form-control" placeholder="Price">
         <ngx-validation-message label="Price"
                                 [showMin]="price?.hasError('min')"
                                 [showMax]="price?.hasError('max')"
+                                [showPattern]="price?.hasError('pattern')"
                                 [showRequired]="price?.errors?.required && price.touched"
                                 min=0
                                 max=1000></ngx-validation-message>
@@ -76,12 +76,13 @@
       <div class="form-group">
         <label for="count">Count</label>
         <input nbInput id="count" formControlName="count"
-               [status]="(count?.errors?.required || count?.hasError('min') || count?.hasError('max')) && count.touched ? 'danger' : 'primary'"
+               [status]="(count?.errors?.required || count?.hasError('min') || count?.hasError('pattern') || count?.hasError('max')) && count.touched ? 'danger' : 'primary'"
                class="form-control"
                placeholder="Count">
         <ngx-validation-message label="Count"
                                 [showMin]="count?.hasError('min')"
                                 [showMax]="count?.hasError('max')"
+                                [showPattern]="count?.hasError('pattern')"
                                 [showRequired]="count?.errors?.required && price.touched"
                                 min=0
                                 max=100></ngx-validation-message>
